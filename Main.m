@@ -18,8 +18,8 @@ ptCloud3 = Create_PtCloud (Puzzle3.Xclean(:), Puzzle3.Yclean(:), Puzzle3.Zclean(
 
 %% Method of Facets Segmentation Based on Matlab Functions
 
-  Sub_PtClouds = Facet_Segmentation (ptCloud3, 2);
-  ShowSubPtCloud (Sub_PtClouds)
+%   Sub_PtClouds = Facet_Segmentation_PCFitPlane (ptCloud3, 2);
+%   ShowSubPtCloud (Sub_PtClouds)
 
 %% Proposed Method of Facets Segmentation
 
@@ -34,20 +34,20 @@ ptCloud3 = Create_PtCloud (Puzzle3.Xclean(:), Puzzle3.Yclean(:), Puzzle3.Zclean(
 
 %% Load and display each Facets of a Fragment and the Reconstruct Fragment from the Facets 
 
-% load('Sub_PtClouds1')
+load('Sub_PtClouds1')
 % ShowSubPtCloud (Sub_PtClouds1)
 
-% load('Sub_PtClouds2')
+load('Sub_PtClouds2')
 % ShowSubPtCloud (Sub_PtClouds2)
 
-% load('Sub_PtClouds3')
+load('Sub_PtClouds3')
 % ShowSubPtCloud (Sub_PtClouds3)
 
 %% Find Matches between the Facets of 2 Fragments and perfom a merging
 
-% [Ind1, Ind2, tform_Matrix] = FindMatchFacets(Sub_PtClouds1, Sub_PtClouds2);
+[Ind1, Ind2, tform_Matrix] = FindMatchFacets(Sub_PtClouds2, Sub_PtClouds3);
 
-% MergingPtClouds (ptCloud1, ptCloud2, Ind1, Ind2, tform_Matrix);
+MergingPtClouds (ptCloud2, ptCloud3, Ind1, Ind2, tform_Matrix);
 
 
 end
@@ -200,7 +200,7 @@ end
 
 end
 
-function Sub_PtClouds = Facet_Segmentation (ptCloud, MaxDistance)
+function Sub_PtClouds = Facet_Segmentation_PCFitPlane (ptCloud, MaxDistance)
 
 % This function is based on an example presented on the website MathWorks
 % https://fr.mathworks.com/help/vision/ref/pcfitplane.html
