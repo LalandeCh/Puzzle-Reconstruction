@@ -1,5 +1,14 @@
 function Main
 
+%% Algorithm of puzzle reconstruction
+%% Optimization Module
+
+%% Lalande Chatain Benjamin
+%% Katherine Sheran
+%% Carmen Moreno Genis
+
+
+
 %% Initialization & Download of the Data of each Fragments
 
 clear all, close all, clc
